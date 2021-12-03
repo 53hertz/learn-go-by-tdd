@@ -4,7 +4,7 @@ func main() {
 	
 }
 
-func Sum(arr [5]int) int {
+func Sum(arr []int) int {
 	sum := 0
 	for _, v := range arr {
 		sum += v
