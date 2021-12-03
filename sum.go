@@ -1,7 +1,7 @@
 package main
 
 func main() {
-	
+
 }
 
 func Sum(arr []int) int {
@@ -13,13 +13,16 @@ func Sum(arr []int) int {
 	return sum
 }
 
-func SumAll(numbersToSum ...[]int) (sums []int) {
-	lengthOfNumbers := len(numbersToSum)
-	sums = make([]int, lengthOfNumbers)
+func SumAllTails(numbersToSum ...[]int) []int {
+	var sum []int
 
-	for i, numbers := range numbersToSum {
-		sums[i] = Sum(numbers)
+	for _, number := range numbersToSum {
+		if len(number) == 0 {
+			sum = append(sum, 0)
+		} else {
+			tail := number[1:]
+			sum = append(sum, Sum(tail))
+		}
 	}
-
-	return
+	return sum
 }
